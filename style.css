@@ -1,0 +1,84 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+}
+
+html {
+  font-weight: bolder;
+  line-height: 1.5;
+  font-family: "Roboto", sans-serif;
+}
+
+/* in order to center flex content: 
+add justify content and align-items 
+as well as set the height to 100vh */
+body {
+  background: #f0e5cf;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+button {
+  font-family: "Roboto", sans-serif;
+  background: #c8c6c6;
+  font-size: 1.5rem;
+  padding: 0.5em 1em;
+  border: 1px solid #4b6587;
+}
+
+[data-type="number"] {
+  background: #fff;
+}
+
+[data-type="operator"]:active,
+[data-type="number"]:active {
+  opacity: 0.5;
+  background: #4b6587;
+}
+
+/* when you have border-radius property
+ for a div that contains buttons, 
+ it does not work and you need to add overflow:hidden */
+.calculator {
+  box-shadow: 0 0 25px 0 rgb(0, 3, 36);
+  border-radius: 0.5em;
+  overflow: hidden;
+}
+
+.display {
+  background: #4b6587;
+  color: #fff;
+  padding: 0.5em 1em;
+  text-align: right;
+  font-size: 2rem;
+}
+
+/* some tips with grid. 
+grid-template-columns to set column number. 
+Grid template areas is a great tool to strecth 
+some of the cells */
+
+.keys {
+  background: #c8c6c6;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-template-areas:
+    ". . . ."
+    ". . . equal"
+    ". . . equal"
+    ". . . equal"
+    ". . . equal";
+}
+
+[data-type="equal"] {
+  grid-area: equal;
+  background: #c36839;
+}
+
+.equal:active {
+  opacity: 0.8;
+}
